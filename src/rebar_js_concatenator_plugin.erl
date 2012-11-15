@@ -65,7 +65,8 @@
 -include_lib("eunit/include/eunit.hrl").
 -endif.
 
--export([compile/2,
+-export([js_build/2,
+         compile/2,
          clean/2]).
 
 -export([concatenate/1,
@@ -76,6 +77,9 @@
 %% ===================================================================
 
 compile(Config, _AppFile) ->
+    js_build(Config, _AppFile).
+
+js_build(Config, _AppFile) ->
     Options = options(Config),
     Concatenations = option(concatenations, Options),
     OutDir = option(out_dir, Options),
